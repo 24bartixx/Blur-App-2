@@ -30,6 +30,9 @@ class BlurWorker(context: Context, params: WorkerParameters): Worker(context, pa
 
         makeStatusNotification("Blurring the image", appContext)
 
+        // slow down the work, so that it's easier to see each WorkRequest start
+        sleep()
+
         return try {
             // create bitmap from the cupcake image
             // (CODE) val picture = BitmapFactory.decodeResource(appContext.resources, R.drawable.android_cupcake)
